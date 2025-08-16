@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quarterly Earnings (Q2 FY2025) — Interactive RevealJS Deck</title>
+
+  <!-- Reveal core + theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
+  <!-- Syntax highlighting theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css" />
+
+  <style>
+    /* --- Custom look & feel --- */
+    :root {
+      --r-heading-font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --r-main-font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --r-link-color: #0d6efd;
+    }
+    .reveal .slides { text-align: left; }
+    .reveal .subtitle { font-size: 1.1rem; opacity: 0.8; }
+    .reveal .tag { display: inline-block; border: 1px solid #ddd; border-radius: 999px; padding: .25rem .6rem; margin-right: .4rem; font-size: .85rem; }
+    .reveal .muted { opacity: .7; }
+    .reveal .kpi { font-variant-numeric: tabular-nums; font-size: 2.6rem; font-weight: 700; }
+    .r-stack .panel { padding: 1rem; border-radius: 1rem; border: 1px dashed #aaa; }
+    /* Responsive font sizes for smaller screens */
+    @media (max-width: 900px){
+      .reveal { --r-main-font-size: calc(0.6vw + 0.6vh + 0.6vmin); }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title -->
+      <section>
+        <h1>Quarterly Earnings — Q2 FY2025</h1>
+        <p class="subtitle">Interactive presentation powered by <strong>RevealJS</strong></p>
+        <p class="muted">Prepared by: Technical Consultant · <code>23f2001159@ds.study.iitm.ac.in</code></p>
+        <p>
+          <span class="tag">Fragments</span>
+          <span class="tag">Markdown</span>
+          <span class="tag">Code</span>
+          <span class="tag">Math</span>
+          <span class="tag">Speaker Notes</span>
+        </p>
+        <aside class="notes">
+          Welcome everyone. This deck demonstrates modern presentation features (fragments, markdown, code highlighting, and math) while summarizing Q2 FY2025 results.
+          Press <kbd>S</kbd> to open presenter notes. Press <kbd>O</kbd> for overview.
+        </aside>
+      </section>
+
+      <!-- Agenda with fragments -->
+      <section>
+        <h2>Agenda</h2>
+        <ol>
+          <li class="fragment">Headline KPIs</li>
+          <li class="fragment">Revenue & Margin Walk</li>
+          <li class="fragment">Outlook & Risks</li>
+          <li class="fragment fade-up">Q&amp;A</li>
+        </ol>
+        <aside class="notes">Reveal fragments show one bullet at a time to control pacing.</aside>
+      </section>
+
+      <!-- Markdown slide -->
+      <section data-markdown>
+        <textarea data-template>
+## Headline KPIs (Markdown)
+
+- **Revenue:** $3.2B  
+- **Operating Margin:** 22%  
+- **EPS (diluted):** $1.34  
+
+> Figures are illustrative for demo purposes.
+
+**Why it matters**
+1. Revenue growth outpaced guidance
+2. Margin expansion from automation initiatives
+3. Liquidity remained strong
+        </textarea>
+        <aside class="notes">This entire slide is authored in Markdown.
+        </aside>
+      </section>
+
+      <!-- Animated panels using r-stack + fragments -->
+      <section>
+        <h2>Margin Walk (Concept)</h2>
+        <div class="r-stack">
+          <div class="panel fragment">Start: <span class="kpi">20.0%</span></div>
+          <div class="panel fragment">+ Mix shift: <span class="kpi">+1.1%</span></div>
+          <div class="panel fragment">+ OpEx control: <span class="kpi">+0.6%</span></div>
+          <div class="panel fragment">- FX headwind: <span class="kpi">-0.7%</span></div>
+          <div class="panel fragment">End: <span class="kpi">22.0%</span></div>
+        </div>
+        <aside class="notes">Each panel appears as you advance, illustrating how we reached 22%.</aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting and line highlighting -->
+      <section>
+        <h2>Modeling EPS (Python)</h2>
+        <pre><code class="language-python" data-line-numbers="1-5|7-10|12-14">
+import pandas as pd
+
+# Hypothetical shares & net income
+net_income = pd.Series([780, 860, 920], index=["Q4", "Q1", "Q2"])  # $M
+shares_out = 640  # million shares
+
+# EPS calculation
+EPS = (net_income * 1e6) / (shares_out * 1e6)
+EPS = EPS.round(2)
+print(EPS)
+
+# Simple growth vs previous quarter
+qoq_growth = (EPS["Q2"] - EPS["Q1"]) / EPS["Q1"]
+print(f"QoQ EPS growth: {qoq_growth:.1%}")
+        </code></pre>
+        <aside class="notes">The <code>data-line-numbers</code> attribute animates focus on key code blocks.</aside>
+      </section>
+
+      <!-- Financial math with MathJax -->
+      <section>
+        <h2>Financial Formulas</h2>
+        <p>Net Present Value (NPV)</p>
+        <p>\[ \mathrm{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1+r)^t} - C_0 \]</p>
+        <p>Cost of Equity (CAPM)</p>
+        <p>\[ \mathbb{E}[R_i] = r_f + \beta_i\,(\mathbb{E}[R_m]-r_f) \]</p>
+        <aside class="notes">Math is rendered via MathJax 3 through Reveal's math plugin.</aside>
+      </section>
+
+      <!-- Speaker notes guidance example -->
+      <section>
+        <h2>Guidance & Risks</h2>
+        <ul>
+          <li class="fragment">FY2025 revenue growth mid-to-high single digits</li>
+          <li class="fragment">Operating margin to remain ~22%</li>
+          <li class="fragment">Primary risks: FX volatility, credit cycle</li>
+        </ul>
+        <aside class="notes">
+          Keep this concise. If asked about FX, mention hedging policy and sensitivity: ±1% USD index ≈ ±20 bps margin.
+        </aside>
+      </section>
+
+      <!-- Contact / Email requirement -->
+      <section>
+        <h2>Contact</h2>
+        <p>Questions? Reach me at <strong>23f2001159@ds.study.iitm.ac.in</strong></p>
+        <p class="muted">Press <kbd>?</kbd> during the talk to see keyboard shortcuts.</p>
+        <aside class="notes">Close by inviting questions; leave this slide up during Q&amp;A.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal core -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      controls: true,
+      progress: true,
+      history: true,
+      transition: 'slide',
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      }
+    });
+  </script>
+</body>
+</html>
